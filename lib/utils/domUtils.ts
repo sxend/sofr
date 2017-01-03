@@ -19,7 +19,7 @@ export function getIFrameRecursive(wdw: Window): HTMLIFrameElement[] {
   });
   return iframes.filter(frm => {
     try {
-      frm.contentDocument.body + ""; // access to same origin only content
+      frm.contentDocument.body + ''; // access to same origin only content
       return true;
     } catch(e) {
       // ignore other origin iframe

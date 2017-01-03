@@ -7,7 +7,7 @@ export function getTopLevelWindow(wdw: Window, count: number = 0): Window {
       const isSameProtocol = wdw.parent.location.protocol === wdw.location.protocol;
       const isSameHostname = wdw.parent.location.hostname === wdw.location.hostname;
       const isSamePort = wdw.parent.location.port === wdw.location.port;
-      const isBlankPage = wdw.location.protocol === "about:";
+      const isBlankPage = wdw.location.protocol === 'about:';
       if (
         (isSameProtocol && isSameHostname && isSamePort) || isBlankPage
       ) {
