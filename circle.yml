@@ -8,7 +8,7 @@ dependencies:
     - "~/.yarn-cache"
   override:
     - yarn install
-    - npm init
+    - npm run init
     - npm run build
 test:
   override:
