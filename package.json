@@ -4,7 +4,6 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "init": "ava --init",
     "build": "webpack",
     "build:watch": "webpack --watch",
     "test": "tsc --outDir ./dist/ava ./test/* && ava ./dist/ava/test/*"
