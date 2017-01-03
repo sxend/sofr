@@ -14,3 +14,11 @@ dist/
 .ensime
 .ensime_cache/
 npm-debug.log
+lib/*.js
+lib/*.js.map
+lib/**/*.js
+lib/**/*.js.map
+test/*.js
+test/*.js.map
+test/**/*.js
+test/**/*.js.map

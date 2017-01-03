@@ -4,13 +4,16 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
+    "init": "ava --init",
     "build": "webpack",
     "build:watch": "webpack --watch",
-    "test": "echo test"
+    "test": "tsc --outDir ./dist/ava ./test/* && ava ./dist/ava/test/*"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/core-js": "^0.9.35",
+    "ava": "^0.17.0",
     "html-loader": "^0.4.4",
     "source-map-loader": "^0.1.5",
     "ts-loader": "^1.3.3",
