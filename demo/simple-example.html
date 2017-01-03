@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  <div data-marker-attr></div>
+  <script>
+    (function() {
+      var sc = document.createElement('script');
+      sc.onload = function () {
+        sofr.main({
+          selector: '[data-marker-attr]'
+        });
+      };
+      sc.async = 'async';
+      sc.src = '//sofr.first:10000/dist/sofr.js';
+      document.body.appendChild(sc);
+    })();
+  </script>
+  </body>
+</html>

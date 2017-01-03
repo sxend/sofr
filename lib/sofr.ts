@@ -5,7 +5,6 @@ import {Configuration} from "./configuration";
 import {getTopLevelWindow} from './utils/windowUtils';
 import {getDocumentsRecursive} from './utils/domUtils';
 
-
 const wdw: any = <any>getTopLevelWindow(window);
 const cache = {
   configs: <Configuration[]>[]
@@ -22,7 +21,6 @@ export const sofr = {
       // config diff
       return;
     }
-    const documents = getDocumentsRecursive(wdw);
     const front = new Front();
     const model = new Model();
     const store = new Store();
