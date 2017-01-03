@@ -1,0 +1,2 @@
+
+window["sofr"] = window["sofr"] || {};

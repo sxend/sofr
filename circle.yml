@@ -1,0 +1,11 @@
+dependencies:
+  override:
+    - npm run build
+test:
+  override:
+    - npm run test
+deployment:
+  publish:
+    branch: master
+    commands:
+      - echo finish.
