@@ -11,4 +11,7 @@ export class Model {
     this.front = front;
     this.store = store;
   }
+  notify(id: string, data: any) {
+    this.store.newData(id, {});
+  }
 }

@@ -11,4 +11,7 @@ export class Store {
     this.front = front;
     this.model = model;
   }
+  newData(id: string, data: any) {
+    this.front.render(id, data);
+  }
 }

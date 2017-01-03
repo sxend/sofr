@@ -12,4 +12,12 @@ export class Front {
     this.model = model;
     this.store = store;
   }
+  private scanLoop() {
+    setInterval(() => { //tentative impl
+      this.model.notify("id", document.querySelector('body'));
+    }, 300);
+  }
+  render(id: string, data: any) {
+    console.log('render');
+  }
 }
