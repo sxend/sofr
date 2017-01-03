@@ -22,8 +22,12 @@ export class Front {
       documents.forEach(doc => {
         let elements = [].slice.call(doc.querySelectorAll(this.config.selector));
         elements.forEach((el: Element) => {
+          if (!el.getAttribute("data-sofr-id")) {
+            return;
+          }
           let id = Date.now().toString(32) + Math.random().toString(32).substring(2);
           el.setAttribute("data-sofr-id", id);
+          this.elements[id] = el;
           this.model.notify(id, el);
         });
       });
