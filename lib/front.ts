@@ -25,7 +25,7 @@ export class Front {
           if (!el.getAttribute("data-sofr-id")) {
             return;
           }
-          let id = Date.now().toString(32) + Math.random().toString(32).substring(2);
+          let id = genid();
           el.setAttribute("data-sofr-id", id);
           this.elements[id] = el;
           this.model.notify(id, el);
@@ -36,4 +36,7 @@ export class Front {
   render(id: string, data: any) {
     this.elements[id]
   }
+}
+function genid() {
+  return Date.now().toString(32) + Math.random().toString(32).substring(2);
 }
