@@ -1991,7 +1991,7 @@ load-json-file@^1.0.0, load-json-file@^1.1.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-loader-utils@^0.2.11, loader-utils@^0.2.15, loader-utils@^0.2.6, loader-utils@~0.2.2:
+loader-utils@^0.2.11, loader-utils@^0.2.15, loader-utils@^0.2.6, loader-utils@^0.2.x, loader-utils@~0.2.2:
   version "0.2.16"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.16.tgz#f08632066ed8282835dff88dfb52704765adee6d"
   dependencies:
@@ -2015,6 +2015,10 @@ lodash.flatten@^4.2.0:
 lodash.isequal@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.4.0.tgz#6295768e98e14dc15ce8d362ef6340db82852031"
+
+lodash@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@^4.2.0:
   version "4.17.4"
@@ -2501,6 +2505,20 @@ power-assert-util-string-width@^1.1.1:
 prepend-http@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
+
+preprocess-loader@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/preprocess-loader/-/preprocess-loader-0.2.0.tgz#58074dbb9910089563735a3f00a3f1bd379a29c7"
+  dependencies:
+    loader-utils "^0.2.x"
+    lodash "^3.10.1"
+    preprocess "^3.0.2"
+
+preprocess@^3.0.2:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/preprocess/-/preprocess-3.1.0.tgz#a44e5cdd5bbb5a54f0ad289aaeed80995d7d938a"
+  dependencies:
+    xregexp "3.1.0"
 
 preserve@^0.2.0:
   version "0.2.0"
@@ -3313,6 +3331,10 @@ xdg-basedir@^2.0.0:
 xml-char-classes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/xml-char-classes/-/xml-char-classes-1.0.0.tgz#64657848a20ffc5df583a42ad8a277b4512bbc4d"
+
+xregexp@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-3.1.0.tgz#14d8461e0bdd38224bfee5039a0898fc42fcd336"
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"
