@@ -1,3 +1,4 @@
-import {getTopLevelWindow} from './utils/WindowUtils';
+import {sofr} from "./sofr";
+declare const window: any;
 
-const topLevel: Window = getTopLevelWindow(window);
+window['sofr'] = window['sofr'] || sofr;

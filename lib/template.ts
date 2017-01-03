@@ -1,4 +1,4 @@
 
 export function template(html: string): string {
-  return html;
+  return html; // implement macro
 }
