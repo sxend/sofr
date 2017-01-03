@@ -1,5 +1,6 @@
 import {Configuration} from "./configuration";
 import {getTopLevelWindow} from './utils/windowUtils';
+import {getDocumentsRecursive} from './utils/domUtils';
 
 const cache = {
   configs: <Configuration[]>[]
@@ -12,6 +13,6 @@ export const sofr = {
       return;
     }
     const topLevelWindow: Window = getTopLevelWindow(window);
-    
+    const documents = getDocumentsRecursive(topLevelWindow);
   }
 };

@@ -7,17 +7,17 @@ export function getDocument(wdw: Window): Document {
 }
 
 export function getIFrameRecursive(wdw: Window): HTMLIFrameElement[] {
-  let result: HTMLIFrameElement[] = [];
+  let iframes: HTMLIFrameElement[] = [];
   const doc: Document = getDocument(wdw);
   if (!doc) {
-    return result;
+    return iframes;
   }
-  const children: HTMLIFrameElement[] = [].slice.call(doc.getElementsByTagName('iframe'));
-  result = result.concat(children);
-  children.forEach(child => {
-    result = result.concat(getIFrameRecursive(child.contentWindow));
+  const childIframes: HTMLIFrameElement[] = [].slice.call(doc.getElementsByTagName('iframe'));
+  iframes = iframes.concat(childIframes);
+  childIframes.forEach(child => {
+    iframes = iframes.concat(getIFrameRecursive(child.contentWindow));
   });
-  return result.filter(frm => {
+  return iframes.filter(frm => {
     try {
       frm.contentDocument.body + ""; // access to same origin only content
       return true;
