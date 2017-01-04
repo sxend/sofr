@@ -1,3 +1,4 @@
+import {getTopLevelWindow} from './windowUtils';
 
 export function getDocument(wdw: Window): Document {
   try {
@@ -21,7 +22,7 @@ export function getIFrameRecursive(wdw: Window): HTMLIFrameElement[] {
     try {
       frm.contentDocument.body + ''; // access to same origin only content
       return true;
-    } catch(e) {
+    } catch (e) {
       // ignore other origin iframe
     }
     return false;
@@ -34,4 +35,20 @@ export function getDocumentsRecursive(wdw: Window): Document[] {
     .concat(iframes.map(frm => getDocument(frm.contentWindow)))
     .filter(element => !!element);
   return documents;
+}
+
+export function ready(callback: Function): void {
+  const wdw = getTopLevelWindow();
+  const doc = getDocument(wdw);
+  if (doc.readyState === 'complete' || (doc.readyState !== 'loading' && !(<any>doc.documentElement)['doScroll']))
+    setTimeout(() => callback(), 0);
+  else {
+    const _callback = function() {
+      doc.removeEventListener('DOMContentLoaded', _callback, false);
+      wdw.removeEventListener('load', _callback, false);
+      callback();
+    }
+    doc.addEventListener('DOMContentLoaded', _callback, false);
+    wdw.addEventListener('load', _callback, false);
+  }
 }

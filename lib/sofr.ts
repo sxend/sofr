@@ -29,12 +29,3 @@ export const sofr = {
     store.initialize(config, front, model);
   }
 };
-function singleton<A>(a: () => A): () => A {
-  let instance: A = null;
-  return () => {
-    if (!instance) {
-      instance = a();
-    }
-    return instance;
-  }
-}
