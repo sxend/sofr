@@ -3,6 +3,7 @@ import {Front} from "./front";
 import {Configuration} from "./configuration";
 
 export class Store {
+  private _callback: { [name: string]: Function[] } = {};
   private config: Configuration;
   private front: Front;
   private model: Model;
@@ -11,6 +12,16 @@ export class Store {
     this.front = front;
     this.model = model;
   }
-  onData(elements: Element[], data: any) {
+  emit(name: string, payload?: any) {
+    (this._callback[name] = this._callback[name] || []).forEach(callback => {
+      try {
+        callback(payload);
+      } catch (e) {
+        console.warn(e);
+      }
+    });
+  }
+  on(name: string, callback: Function) {
+    (this._callback[name] = this._callback[name] || []).push(callback);
   }
 }

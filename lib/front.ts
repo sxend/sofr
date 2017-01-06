@@ -13,6 +13,9 @@ export class Front {
     this.config = config;
     this.model = model;
     this.store = store;
+    this.store.on('fetched', (data: any[]) => {
+      this.render(data);
+    });
   }
 
   private scan() {
@@ -28,12 +31,28 @@ export class Front {
         foundElements.push(el);
       });
     });
+    if (foundElements.length == 0) {
+      return;
+    }
     // prerender
-    this.model.found(foundElements);
+    if (this.config.enabledPreRender) {
+      this.preRender(foundElements); // async?
+    }
+    this.model.fetch([{
+      id: "genid",
+      imp: [{
+        id: 1,
+        w: 10,
+        h: 9
+      }],
+      ext: {
+        tagid: "10000"
+      }
+    }]);
   }
-  preRender(id: string, data: any) {
+  private preRender(elements: Element[]) {
   }
-  render(id: string, data: any) {
+  private render(data: any[]) {
   }
 }
 function genid() {

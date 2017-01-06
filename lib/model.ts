@@ -11,10 +11,10 @@ export class Model {
     this.front = front;
     this.store = store;
   }
-  found(elements: Element[]) {
+  fetch(components: any[]) {
     // config detection
     // fetch
     // emit data
-    this.store.onData(elements, {});
+    this.store.emit('fetched', {});
   }
 }
