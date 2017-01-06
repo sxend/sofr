@@ -11,10 +11,10 @@ export class Model {
     this.front = front;
     this.store = store;
   }
-  fetch(components: any[]) {
+  fetch(options: any[]) {
     // config detection
     // fetch
     // emit data
-    this.store.emit('fetched', {});
+    this.store.emit('update', {});
   }
 }

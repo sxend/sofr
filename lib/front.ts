@@ -13,8 +13,14 @@ export class Front {
     this.config = config;
     this.model = model;
     this.store = store;
-    this.store.on('fetched', (data: any[]) => {
-      this.render(data);
+    this.store.on('update', (data: any[]) => {
+      const documents = getDocumentsRecursive(getTopLevelWindow());
+      const el = document.querySelector('[data-sofr-id=' + data[0].id + ']');
+      if (data[0].disabled) {
+        el && el.remove();
+      } else {
+        this.render(el, data[0]);
+      }
     });
   }
 
@@ -23,7 +29,7 @@ export class Front {
     const foundElements: Element[] = [];
     documents.forEach(doc => {
       const elements = [].slice.call(doc.querySelectorAll(this.config.selector));
-       elements.forEach((el: Element) => {
+      elements.forEach((el: Element) => {
         if (el.getAttribute("data-sofr-id")) {
           return;
         }
@@ -52,7 +58,7 @@ export class Front {
   }
   private preRender(elements: Element[]) {
   }
-  private render(data: any[]) {
+  private render(el: Element, data: any[]) {
   }
 }
 function genid() {
